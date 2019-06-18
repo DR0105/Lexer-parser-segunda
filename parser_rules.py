@@ -2,11 +2,11 @@ from lexer_rules import tokens
 from expressions import *
 
 def p_expression_plus(subexpr):
-    'expression : expression PLUS term'
+    'expression : expression expression PLUS'
     subexpr[0] = subexpr[1] + subexpr[2]
 
 def p_expression_minus(subexpr):
-    'expression : expression MINUS term'
+    'expression : expression expression MINUS'
     subexpr[0] = subexpr[1] - subexpr[2]
 
 def p_expression_term(subexpr):
@@ -14,11 +14,11 @@ def p_expression_term(subexpr):
     subexpr[0] = subexpr[1]
 
 def p_term_times(subexpr):
-    'term : term TIMES factor'
+    'term : expression expression TIMES'
     subexpr[0] = subexpr[1] * subexpr[2]
 
 def p_term_division(subexpr):
-    'term : term DIVISION factor'
+    'term : expression expression TIMES'
     subexpr[0] = subexpr[1] / subexpr[2]
 
 def p_term_factor(subexpr):
