@@ -29,9 +29,5 @@ def p_factor_num(subexpr):
     'factor : NUMBER'
     subexpr[0] = subexpr[1]
 
-def p_factor_expr(subexpr):
-    'factor : LPAREN expression RPAREN'
-    subexpr[0] = subexpr[2]
-
 def p_error(subexpr):
     raise Exception("Syntax error.")
